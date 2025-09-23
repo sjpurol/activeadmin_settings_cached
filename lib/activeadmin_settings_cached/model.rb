@@ -22,10 +22,16 @@ module ActiveadminSettingsCached
       value = settings[key_name]
 
       input_opts = if default_value.is_a?(Array)
-                     {
-                       collection: default_value,
-                       selected: value,
-                     }
+                     if display[settings_name] == :check_boxes
+                       {
+                         collection: default_value.map {|v| [v,v, {checked: value.include?(v)}]},
+                       }
+                     else
+                       {
+                         collection: default_value,
+                         selected: value,
+                       }
+                     end
                    elsif (default_value.is_a?(TrueClass) || default_value.is_a?(FalseClass)) &&
                          display[settings_name].to_s == 'boolean'
                      {
