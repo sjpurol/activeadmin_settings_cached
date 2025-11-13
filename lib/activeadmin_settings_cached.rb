@@ -2,6 +2,10 @@
 
 require 'activeadmin_settings_cached/engine'
 require 'activeadmin_settings_cached/dsl'
+require 'activeadmin_settings_cached/options'
+require 'activeadmin_settings_cached/coercions'
+require 'activeadmin_settings_cached/model'
+require 'activeadmin_settings_cached/version'
 
 module ActiveadminSettingsCached
   class Configuration
